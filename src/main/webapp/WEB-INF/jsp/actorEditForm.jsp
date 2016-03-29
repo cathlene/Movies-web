@@ -15,7 +15,7 @@
         <jsp:include page="header.jsp"/>
         <main>
         <h1>New Movie</h1>
-        <form class="form-horizontal" id="movieForm" role="form" method="POST" action="<c:url value="/actor.htm"/>" >
+        <form class="form-horizontal" commandName="actor" id="movieForm" modelAttribute="actor" role="form" method="POST" action="<c:url value="/actor/update.htm"/>" >
             
   
   
@@ -42,10 +42,11 @@
     </div>
   </div>
     
-       <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Id</label>
+      <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Id</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="hoofdrolSpeler"  name="Id" value="${actor.id}"  placeholder="Id">
+        <input type="text" class="form-control" id="Id" name="Id" value="${actor.id}" placeholder="Id" readonly/>
+
     </div>
   </div>
   <div class="form-group">

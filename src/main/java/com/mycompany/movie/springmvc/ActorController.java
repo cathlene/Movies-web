@@ -40,12 +40,18 @@ public class ActorController {
         if(result.hasErrors()){
             return "actorForm";
         }
-        facade.saveOrUpdate(actor);
+        facade.addActor(actor);
         return "redirect:/actor.htm";
     }
     
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
-    public ModelAndView getEditForm(@PathVariable String id){
+    public ModelAndView getEditForm(@PathVariable long id){
      return new ModelAndView("actorEditForm", "actor",facade.getActor(id));
+    }
+    
+     @RequestMapping(value="/update", method=RequestMethod.POST)
+    public String updateActor(@ModelAttribute("actor") Actor actor){
+        facade.updateActor(actor);
+        return "redirect:/actor.htm";
     }
 }

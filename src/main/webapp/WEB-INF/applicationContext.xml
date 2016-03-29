@@ -23,9 +23,9 @@
     <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
     
     <bean id="facade" class="domain.Facade">
-       <!-- <constructor-arg>
-            <value>Memory</value>
-        </constructor-arg>-->
+       <constructor-arg>
+            <value>stub</value>
+        </constructor-arg>
      
     </bean>
     

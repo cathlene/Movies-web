@@ -12,10 +12,10 @@
  <header>
         <nav>
            <ul class="nav nav-pills">
-               <li role="presentation"><a href="<c:url value="/index.htm"/>">Home</a></li>
-  <li role="presentation"><a href="<c:url value="/movie.htm"/>">Movies</a></li>
-  <li role="presentation"><a href="<c:url value="/actor.htm"/>">Actors</a></li>
-  <li role="presentation"><a href="<c:url value="/contact.htm"/>">Contact</a></li>
+               <li role="presentation"><a href="<c:url value="/index.htm"/>"><spring:message code="lbl.home" text="Home" /></a></li>
+  <li role="presentation"><a href="<c:url value="/movie.htm"/>"><spring:message code="lbl.movies" text="Movies" /></a></li>
+  <li role="presentation"><a href="<c:url value="/actor.htm"/>"><spring:message code="lbl.actors" text="Actors" /></a></li>
+  <li role="presentation"><a href="<c:url value="/contact.htm"/>"><spring:message code="lbl.contact" text="Contact" /></a></li>
 </ul>
         </nav>
     </header>

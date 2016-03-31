@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!DOCTYPE html>
 <html>
@@ -14,36 +15,37 @@
     <body>
         <jsp:include page="header.jsp"/>
         <main>
-        <h1>New Movie</h1>
+       <h2><spring:message code="lbl.actorEditForm" text="Edit actor" /></h2>
+
         <form class="form-horizontal" commandName="actor" id="movieForm" modelAttribute="actor" role="form" method="POST" action="<c:url value="/actor/update.htm"/>" >
             
   
   
          <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Voornaam</label>
+    <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.firstname" text="Firstname" />:</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="Naam" name="Voornaam" value="${actor.voornaam}" placeholder="Voornaam">
+        <input type="text" class="form-control" id="Naam" name="Voornaam" value="${actor.voornaam}" placeholder="<spring:message code="lbl.firstname" text="Firstname" />">
     </div>
   </div>
     
   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Naam</label>
+    <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.name" text="Name" />:</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" id="Naam" name="Naam" value="${actor.naam}" placeholder="Naam">
+        <input type="text" class="form-control" id="Naam" name="Naam" value="${actor.naam}" placeholder="<spring:message code="lbl.firstname" text="Firstname" />">
     </div>
   </div>
   
   
     
       <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Leeftijd</label>
+    <label for="inputPassword3" class="col-sm-2 control-label"><spring:message code="lbl.age" text="Age" />:</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="Leeftijd"  name="Leeftijd" value="${actor.leeftijd}"  placeholder="Leeftijd">
     </div>
   </div>
     
       <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Id</label>
+    <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.id" text="Id" />:</label>
     <div class="col-sm-10">
         <input type="text" class="form-control" id="Id" name="Id" value="${actor.id}" placeholder="Id" readonly/>
 

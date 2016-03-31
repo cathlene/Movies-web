@@ -49,9 +49,21 @@ public class ActorController {
      return new ModelAndView("actorEditForm", "actor",facade.getActor(id));
     }
     
+      @RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+    public String deleteActor(@PathVariable long id){
+        facade.removeActor(id);
+        return "redirect:/actor.htm";
+    }
+    
      @RequestMapping(value="/update", method=RequestMethod.POST)
     public String updateActor(@ModelAttribute("actor") Actor actor){
         facade.updateActor(actor);
         return "redirect:/actor.htm";
+    }
+    
+      @RequestMapping(value="/movies/{id}", method=RequestMethod.GET)
+    public ModelAndView  showMoviesForActor(@PathVariable long id){
+        Actor actor= facade.getActor(id);
+        return new ModelAndView("redirect:/movie.htm","movies", facade.getMoviesWithSpecificActor(actor));
     }
 }

@@ -35,6 +35,32 @@
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
     <mvc:resources mapping="/recources/**" location="/resources/folder/" />
-     
+    
+    
+     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+    <property name="defaultLocale" value="nl" />
+</bean>
+
+<mvc:interceptors>
+<bean id="localeChangeInterceptor"
+class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+<property name="paramName" value="lang" />
+</bean>
+</mvc:interceptors>
+
+
+<bean id="messageSource"
+class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+<property name="basename" value="classpath:messages" />
+<property name="defaultEncoding" value="UTF-8" />
+</bean>
+
+<!--<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+<property name="converters">
+<list>
+<bean class="org.springframework.core.convert.support.ActorConverter" />
+</list>
+</property>
+</bean>-->
 
 </beans>

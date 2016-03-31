@@ -64,6 +64,9 @@ public class ActorController {
       @RequestMapping(value="/movies/{id}", method=RequestMethod.GET)
     public ModelAndView  showMoviesForActor(@PathVariable long id){
         Actor actor= facade.getActor(id);
-        return new ModelAndView("redirect:/movie.htm","movies", facade.getMoviesWithSpecificActor(actor));
+          System.out.println(actor.getVoornaam()+" "+ actor.getNaam()+" "+ actor.getId());
+          System.out.println( facade.getMoviesWithSpecificActor(actor).size());
+        facade.getMoviesWithSpecificActor(actor);
+        return new ModelAndView("movies","movies", facade.getMoviesWithSpecificActor(actor));
     }
 }

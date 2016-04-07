@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!DOCTYPE html>
 <html>
@@ -14,9 +15,9 @@
         <jsp:include page="header.jsp"/>
         <main><table class="table">
                 <tr>
-                    <th>Title</th>
-                    <th>Duration (minutes)</th>
-                    <th>Principal actor</th>
+                    <th><spring:message code="lbl.title" text="Title" /></th>
+                    <th><spring:message code="lbl.durationMin" text="Duration (minutes)" /></th>
+                    <th><spring:message code="lbl.hoofdrolspeler" text="Principal actor" /></th>
                 </tr>
                 <c:forEach var="movie" items="${movies}">
                     <tr>
@@ -27,12 +28,31 @@
 
                     </tr>
                 </c:forEach>
+                <caption><spring:message code="lbl.movies" text="Movies Actors in System" /></caption>
 
-                <caption>Movies Overview</caption>
             </table>
             <form method="GET" action="<c:url value="/movie/new.htm"/>">
                 <input  class="btn btn-primary btn-md" type="submit" value="new"/> 
             </form>
+             <form  modelAttribute="duur" method="GET" action="<c:url value="/movie/duration.htm"/>">
+
+                <div id="duur" class="form-group">
+                    <caption>Zoek nu films met bepaalde duur:</caption>
+                    <legend></legend>
+                 <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.duration" text="Duur" /></label>
+
+                    <div class="col-sm-10">
+        
+                 <input  type="text" class="form-control" id="Duur" name="Duur" />
+
+                 <input  class="btn btn-primary btn-md" type="submit" value="Toon films "/> 
+            </form>
+    </div>
+                
+  </div>
+                
+            
+                
         </main>
         <jsp:include page="footer.jsp"/>
 

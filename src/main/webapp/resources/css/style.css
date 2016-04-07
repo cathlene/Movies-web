@@ -15,6 +15,7 @@ main {
    margin: 0px;
    min-height: 550px;
    font-weight: 100;
+   padding: 10px 10px 10px 10px;
 }
 
 
@@ -66,4 +67,9 @@ width: 70%;
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: white;
+}
+
+#duur{
+    
+    padding-top: 50px;
 }

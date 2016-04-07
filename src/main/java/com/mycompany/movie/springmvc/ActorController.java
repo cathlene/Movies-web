@@ -56,16 +56,20 @@ public class ActorController {
     }
     
      @RequestMapping(value="/update", method=RequestMethod.POST)
-    public String updateActor(@ModelAttribute("actor") Actor actor){
+    public String updateActor(@Valid @ModelAttribute("actor") Actor actor,BindingResult result){
+         if(result.hasErrors()){
+            return "actorEditForm";
+        }
         facade.updateActor(actor);
         return "redirect:/actor.htm";
     }
     
+ 
+    
       @RequestMapping(value="/movies/{id}", method=RequestMethod.GET)
     public ModelAndView  showMoviesForActor(@PathVariable long id){
         Actor actor= facade.getActor(id);
-          System.out.println(actor.getVoornaam()+" "+ actor.getNaam()+" "+ actor.getId());
-          System.out.println( facade.getMoviesWithSpecificActor(actor).size());
+          
         facade.getMoviesWithSpecificActor(actor);
         return new ModelAndView("movies","movies", facade.getMoviesWithSpecificActor(actor));
     }

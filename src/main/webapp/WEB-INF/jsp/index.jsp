@@ -5,9 +5,11 @@
     "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-    <jsp:include page="head.jsp"/>
+    <jsp:include page="head.jsp">
         
+<jsp:param name="title" value="index" />
 
+</jsp:include>
     <body>
        <jsp:include page="header.jsp"/>
 

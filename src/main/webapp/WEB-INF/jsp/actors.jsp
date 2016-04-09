@@ -10,7 +10,11 @@
 
 <!DOCTYPE html>
 <html>
-    <jsp:include page="head.jsp"/>
+     <jsp:include page="head.jsp">
+        
+<jsp:param name="title" value="actors" />
+
+</jsp:include>
     <body>
         <jsp:include page="header.jsp"/>
         <main><table class="table">

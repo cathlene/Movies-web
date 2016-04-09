@@ -14,19 +14,23 @@
 
 <!DOCTYPE html>
 <html>
-    <jsp:include page="head.jsp"/>
+     <jsp:include page="head.jsp">
+        
+<jsp:param name="title" value="movieForm" />
+
+</jsp:include>
 
     <body>
         <jsp:include page="header.jsp"/>
         <main>
             
         <h2><spring:message code="lbl.movieForm" text="New movie" /></h2>
-        <form:form class="form-horizontal" id="movieForm" role="form" method="POST" modelAttribute="movie" action="/movie-SpringMVC/movie.htm" >
-  
+        <form:form class="form-horizontal" id="movieForm" role="form" method="POST" modelAttribute="movieBuilder" action="/movie-springMVC/movie.htm" >
+           
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.title" text="Title" />:</label>
     <div class="col-sm-10">
-     <form:input path="title" type="text" class="form-control" id="title" name="title" value="${movie.title}" />
+     <form:input path="title" type="text" class="form-control" id="title" name="title" value="${movieBuilder.title}" />
                     <form:errors path="title"/>
     </div>
   </div>
@@ -34,7 +38,7 @@
      <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.duration" text="Duration" />:</label>
     <div class="col-sm-10">
-     <form:input path="duur" type="text" class="form-control" id="duur" name="duur" value="${movie.duur}" />
+     <form:input path="duur" type="text" class="form-control" id="duur" name="duur" value="${movieBuilder.duur}" />
                     <form:errors path="duur"/>
     </div>
   </div>
@@ -42,23 +46,25 @@
  
   
       <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label"><spring:message code="lbl.hoofdrolspeler" text="Principal Actor" />:</label>
+    <label for="inputPassword3" class="col-sm-2 control-label"><spring:message code="lbl.hoofdrolspelerVoornaam" text="Principal Actor" />:</label>
     <div class="col-sm-10">
-    <form:input path="hoofdrolSpeler.voornaam" type="text" class="form-control" id="voornaam" name="voornaam" value="${movie.hoofdrolSpeler.voornaam}" />
-                    <form:errors path="hoofdrolSpeler.voornaam"/>
+    <form:input path="actorVoornaam" type="text" class="form-control" id="actorVoornaam" name="actorVoornaam" value="${movieBuilder.actorVoornaam}" />
+                    <form:errors path="actorVoornaam"/> 
     </div>
   </div>
     
      <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label"><spring:message code="lbl.hoofdrolspeler" text="Principal Actor" />:</label>
+    <label for="inputPassword3" class="col-sm-2 control-label"><spring:message code="lbl.hoofdrolspelerAchternaam" text="Principal Actor" />:</label>
     <div class="col-sm-10">
-    <form:input path="hoofdrolSpeler.naam" type="text" class="form-control" id="naam" name="naam" value="${movie.hoofdrolSpeler.naam}" />
-                    <form:errors path="hoofdrolSpeler.naam"/>
+    <form:input path="actorAchternaam" type="text" class="form-control" id="actorAchternaam" name="actorAchternaam" value="${movieBuilder.actorAchternaam}" />
+                    <form:errors path="actorAchternaam"/>
     </div>
   </div>
+    
+  
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <input type="submit" class="btn btn-default" value="Add"/>
+      <input type="submit" id="submit" class="btn btn-default" value="Add"/>
     </div>
   </div>
 </form:form>

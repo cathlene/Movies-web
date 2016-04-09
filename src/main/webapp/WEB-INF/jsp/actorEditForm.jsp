@@ -11,7 +11,11 @@
 
 <!DOCTYPE html>
 <html>
-    <jsp:include page="head.jsp"/>
+   <jsp:include page="head.jsp">
+        
+<jsp:param name="title" value="actorEditForm" />
+
+</jsp:include>
 
     <body>
         <jsp:include page="header.jsp"/>
@@ -55,7 +59,7 @@
   </div>
      <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <input type="submit" class="btn btn-default" value="Edit"/>
+      <input type="submit" class="btn btn-default" value="Edit"/> 
     </div>
   </div>
  

@@ -1,4 +1,4 @@
-package domain;
+package ui;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

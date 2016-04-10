@@ -1,4 +1,4 @@
-package domain;
+package ui;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -10,9 +10,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 /**
  *
@@ -22,7 +20,7 @@ public class AddMovieTest {
     
     private WebDriver driver;
 
-	@Test
+/**	@Test
 	public void test_Should_add_product_if_all_fields_are_filled_in_correclty_with_valid_title_duration_nameActor_firstNameActor(){
                  System.setProperty("webdriver.chrome.driver", "C://cathlene//KHL//2de jaar//2de semester//internetprogrammerenOrigin//chromedriver.exe");
 
@@ -34,5 +32,5 @@ public class AddMovieTest {
                 addMoviePage.setTitle("Titanic");
 		addMoviePage.save();
 		assertEquals("movies", driver.getTitle());		
-	}
+	}**/
 }

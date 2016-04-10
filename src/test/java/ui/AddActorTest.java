@@ -1,4 +1,4 @@
-package domain;
+package ui;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,7 +20,7 @@ public class AddActorTest {
 
     private WebDriver driver;
 
-	@Test
+/**	@Test
 	public void test_Should_add_product_if_all_fields_are_filled_in_correclty_with_valid_name_firstname_age(){
                  System.setProperty("webdriver.chrome.driver", "C://cathlene//KHL//2de jaar//2de semester//internetprogrammerenOrigin//chromedriver.exe");
 
@@ -31,6 +31,6 @@ public class AddActorTest {
 		addActorPage.setAge(42);
 		addActorPage.save();
 		assertEquals("actors", driver.getTitle());		
-	}
+	}**/
 
 }

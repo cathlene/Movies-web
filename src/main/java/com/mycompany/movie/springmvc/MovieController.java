@@ -6,10 +6,12 @@
 package com.mycompany.movie.springmvc;
 import domain.*;
 import javax.swing.JOptionPane;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -55,5 +57,27 @@ public class MovieController {
     @RequestMapping(value = "/duration",method = RequestMethod.GET)
     public ModelAndView getMovieWithDurationLessOrEqual(@ModelAttribute ("duur") Integer duur){
         return new ModelAndView("movies","movies", facade.getMoviesWithSpecificDuration(duur));
+    }
+    
+    @RequestMapping(value="/{id}/{firstname}/{name}", method=RequestMethod.GET)
+    public ModelAndView getEditForm(@PathVariable ("id")long id, @PathVariable ("firstname")String firstname,@PathVariable ("name")String name){
+        Movie movie= facade.getMovie(id);
+     return new ModelAndView("movieEditForm", "movieBuilder",new MovieBuilder(movie.getTitle(),movie.getDuur(),firstname,name,id));
+    }
+    
+    @RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+    public String deleteMovie(@PathVariable long id){
+        facade.removeMovie(facade.getMovie(id));
+        return "redirect:/movie.htm";
+    }
+    
+     @RequestMapping(value="/update", method=RequestMethod.POST)
+    public String updateMovie(@Valid @ModelAttribute("movieBuilder") MovieBuilder movieBuilder,BindingResult result){
+         if(result.hasErrors()){
+            return "movieEditForm";
+        }
+        Movie movie=movieBuilder.build(facade);
+        facade.updateMovie(movie);
+        return "redirect:/movie.htm";
     }
 }

@@ -51,6 +51,8 @@ public class ActorController {
     
       @RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
     public String deleteActor(@PathVariable long id){
+        
+        facade.deleteMoviesWithSpeceficActor(facade.getActor(id));
         facade.removeActor(id);
         return "redirect:/actor.htm";
     }
@@ -60,12 +62,12 @@ public class ActorController {
          if(result.hasErrors()){
             return "actorEditForm";
         }
+         
         facade.updateActor(actor);
         return "redirect:/actor.htm";
     }
     
- 
-    
+       
       @RequestMapping(value="/movies/{id}", method=RequestMethod.GET)
     public ModelAndView  showMoviesForActor(@PathVariable long id){
         Actor actor= facade.getActor(id);

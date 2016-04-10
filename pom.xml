@@ -12,7 +12,9 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <glassfish.home>C:/Program Files/glassfish-4.1.1/glassfish</glassfish.home>
     </properties>
+   
     
     <dependencies>
         <dependency>

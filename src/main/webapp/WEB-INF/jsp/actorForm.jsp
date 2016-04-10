@@ -59,9 +59,8 @@
     </div>
   </div>
      <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.id" text="Id" />:</label>
     <div class="col-sm-10">
-        <form:input  path="Id" readonly="true" type="text" class="form-control" id="Id" name="Id" value="${actor.id}" placeholder="Id" />
+        <form:input  path="Id" type="hidden" class="form-control" id="Id" name="Id" value="${actor.id}" placeholder="Id" />
                     <form:errors path="Id"/>
 
     </div>

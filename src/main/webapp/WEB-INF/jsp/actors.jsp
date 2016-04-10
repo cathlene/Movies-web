@@ -34,7 +34,6 @@
                         <td><a href="<c:url value="actor/${actor.id}.htm"/>"> <spring:message code="lbl.edit" text="Edit" /></a> </td>
                         <td><a href="<c:url value="actor/delete/${actor.id}.htm" />"><spring:message code="lbl.delete" text="Delete" /></a></td>
                         <td><a href="<c:url value="actor/movies/${actor.id}.htm" />">show movies</a></td>
-                        <td><a href="<c:url value="actor/addMovieToActor/${actor.id}.htm" />">add Movie </a></td>
 
                     </tr>
                 </c:forEach>

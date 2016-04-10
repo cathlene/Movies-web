@@ -73,6 +73,7 @@ public class MovieController {
         return "redirect:/movie.htm";
     }
     
+    
      @RequestMapping(value="/update", method=RequestMethod.POST)
     public String updateMovie(@Valid @ModelAttribute("movieBuilder") MovieBuilder movieBuilder,BindingResult result){
          if(result.hasErrors()){
@@ -80,6 +81,12 @@ public class MovieController {
         }
         Movie movie=movieBuilder.build(facade);
         facade.updateMovie(movie);
+        return "redirect:/movie.htm";
+    }
+    
+     @RequestMapping(value="/ChooseActor/{id}", method=RequestMethod.GET)
+    public String ChooseActor(@PathVariable long id){
+        facade.removeMovie(facade.getMovie(id));
         return "redirect:/movie.htm";
     }
 }

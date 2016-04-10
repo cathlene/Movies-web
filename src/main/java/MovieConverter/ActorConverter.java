@@ -2,8 +2,6 @@ package MovieConverter;
 import org.springframework.core.convert.converter.Converter;
 import domain.Actor;
 import domain.Facade;
-import domain.Movie;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,19 +13,20 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  * @author cathlene
  */
-public class MovieConverter implements Converter<String,Movie>{
+public class ActorConverter implements Converter<String,Actor>{
 
-     @Autowired
     private Facade facade;
-    
-  
+    public ActorConverter(Facade facade){
+    this.facade=facade;
+    }
     @Override
-    public Movie convert(String s) {
+    public Actor convert(String s) {
         if (s == null) {
         throw new IllegalArgumentException();
 }   
-        return facade.getMovie(s);
+        String res[]= s.split("\\s");
+        return facade.getActor(res[1], res[0]);
+        
     }
-    
     
 }

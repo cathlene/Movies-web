@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -45,6 +46,7 @@ public class MovieController {
         }
         try{
         Actor actor= movieBuilder.build(facade).getHoofdrolSpeler();
+        
         Movie movie=movieBuilder.build(facade);
         facade.addMovie(movie);
         actor.addMovie(movie);
@@ -55,7 +57,7 @@ public class MovieController {
     }
     
     @RequestMapping(value = "/duration",method = RequestMethod.GET)
-    public ModelAndView getMovieWithDurationLessOrEqual(@ModelAttribute ("duur") Integer duur){
+    public ModelAndView getMovieWithDurationLessOrEqual(@RequestParam ("Duur") Integer duur){
         return new ModelAndView("movies","movies", facade.getMoviesWithSpecificDuration(duur));
     }
     

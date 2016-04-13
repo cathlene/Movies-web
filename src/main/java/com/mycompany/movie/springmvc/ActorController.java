@@ -62,7 +62,7 @@ public class ActorController {
          if(result.hasErrors()){
             return "actorEditForm";
         }
-         
+
         facade.updateActor(actor);
         return "redirect:/actor.htm";
     }

@@ -22,9 +22,9 @@
 
     <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
     
-    <bean id="facade" class="domain.Facade">
+    <bean id="facade" class="domain.Facade" destroy-method="closeConnection">
        <constructor-arg>
-            <value>stub</value>
+            <value>sql</value>
         </constructor-arg>
      
     </bean>

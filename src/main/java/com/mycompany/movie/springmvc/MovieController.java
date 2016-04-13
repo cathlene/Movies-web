@@ -50,6 +50,7 @@ public class MovieController {
         Movie movie=movieBuilder.build(facade);
         facade.addMovie(movie);
         actor.addMovie(movie);
+            System.out.println("aaantal!!!!!!!!!!!!!"+facade.getActor(actor.getId()).getMovies().size());
         }catch(DomainException e){
          return "movieForm";
         }

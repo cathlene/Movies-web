@@ -52,7 +52,6 @@ public class ActorController {
       @RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
     public String deleteActor(@PathVariable long id){
         
-        facade.deleteMoviesWithSpeceficActor(facade.getActor(id));
         facade.removeActor(id);
         return "redirect:/actor.htm";
     }
@@ -71,15 +70,10 @@ public class ActorController {
       @RequestMapping(value="/movies/{id}", method=RequestMethod.GET)
     public ModelAndView  showMoviesForActor(@PathVariable long id){
         Actor actor= facade.getActor(id);
-          
+
         facade.getMoviesWithSpecificActor(actor);
         return new ModelAndView("movies","movies", facade.getMoviesWithSpecificActor(actor));
     }
     
-   /**  @RequestMapping(value="/addMovieToActor/{id}",method=RequestMethod.GET)
-    public ModelAndView addMovieToActor(@PathVariable long id){
-        ModelAndView modelAndView = new ModelAndView("addBookForm", "author", service.getAuthorById(id));
-        modelAndView.addObject("books", service.getAllBookTitles());
-        return modelAndView;
-    }**/
+  
 }

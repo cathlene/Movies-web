@@ -62,7 +62,17 @@ width: 70%;
    margin: 0 15%;
    
 }
+#slcRole{
+    
+    color: black;
+}
 
+#opmaak{
+    margin:10px 0 10px 0;
+}
+.option{
+    color: black;
+}
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {

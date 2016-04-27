@@ -14,63 +14,55 @@
 
 <!DOCTYPE html>
 <html>
-     <jsp:include page="head.jsp">
-        
-<jsp:param name="title" value="movieForm" />
+    <jsp:include page="head.jsp">
 
-</jsp:include>
+        <jsp:param name="title" value="movieForm" />
+
+    </jsp:include>
 
     <body>
         <jsp:include page="header.jsp"/>
         <main>
-            
-        <h2><spring:message code="lbl.movieForm" text="New movie" /></h2>
-        <form:form class="form-horizontal" id="movieForm" role="form" method="POST" modelAttribute="movieBuilder" action="/movie-springMVC/movie.htm" >
-           
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.title" text="Title" />:</label>
-    <div class="col-sm-10">
-     <form:input path="title" type="text" class="form-control" id="title" name="title" value="${movieBuilder.title}" />
-                    <form:errors path="title"/>
-    </div>
-  </div>
-    
-     <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.duration" text="Duration" />:</label>
-    <div class="col-sm-10">
-     <form:input path="duur" type="text" class="form-control" id="duur" name="duur" value="${movieBuilder.duur}" />
-                    <form:errors path="duur"/>
-    </div>
-  </div>
-    
- 
-  
-      <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label"><spring:message code="lbl.hoofdrolspelerVoornaam" text="Principal Actor" />:</label>
-    <div class="col-sm-10">
-    <form:input path="actorVoornaam" type="text" class="form-control" id="actorVoornaam" name="actorVoornaam" value="${movieBuilder.actorVoornaam}" />
-                    <form:errors path="actorVoornaam"/> 
-    </div>
-  </div>
-    
-     <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label"><spring:message code="lbl.hoofdrolspelerAchternaam" text="Principal Actor" />:</label>
-    <div class="col-sm-10">
-    <form:input path="actorAchternaam" type="text" class="form-control" id="actorAchternaam" name="actorAchternaam" value="${movieBuilder.actorAchternaam}" />
-                    <form:errors path="actorAchternaam"/>
-    </div>
-  </div>
-    
 
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <input type="submit" id="submit" class="btn btn-default" value="Add"/>
-    </div>
-  </div>
-</form:form>
-        
+            <h2><spring:message code="lbl.movieForm" text="New movie" /></h2>
+            <form:form class="form-horizontal" id="movieForm" role="form" method="POST" modelAttribute="movie" action="/movie-springMVC/movie.htm" >
 
-    </main>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.title" text="Title" />:</label>
+                    <div class="col-sm-10">
+                        <form:input path="title" type="text" class="form-control" id="title" name="title" value="${movie.title}" />
+                        <form:errors path="title"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.duration" text="Duration" />:</label>
+                    <div class="col-sm-10">
+                        <form:input path="duur" type="text" class="form-control" id="duur" name="duur" value="${movie.duur}" />
+                        <form:errors path="duur"/>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.hoofdrolspeler" text="HoofdrolSpeler" />:</label>
+                    <div>
+                      <form:select id="slcRole" path="hoofdrolSpeler"> 
+                            <form:options items="${actorList}" itemLabel="fullName" itemValue="id" id="selections"/>
+                        </form:select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" id="submit" class="btn btn-default" value="Add"/>
+                    </div>
+                </div>
+            </form:form>
+
+
+        </main>
         <jsp:include page="footer.jsp"/>
     </body>
 </html>

@@ -13,9 +13,8 @@
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
- <!-- <mvc:annotation-driven conversion-service="conversionService"/>-->
- <mvc:annotation-driven />
-  <context:component-scan base-package="com.mycompany.movie.springmvc" />
+    <mvc:annotation-driven conversion-service="converterService"/>
+    <context:component-scan base-package="com.mycompany.movie.springmvc" />
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
@@ -38,33 +37,30 @@
     <mvc:resources mapping="/recources/**" location="/resources/folder/" />
     
     
-     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
-    <property name="defaultLocale" value="nl" />
-</bean>
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+        <property name="defaultLocale" value="nl" />
+    </bean>
 
-<mvc:interceptors>
-<bean id="localeChangeInterceptor"
-class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-<property name="paramName" value="lang" />
-</bean>
-</mvc:interceptors>
+    <mvc:interceptors>
+        <bean id="localeChangeInterceptor"
+              class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+            <property name="paramName" value="lang" />
+        </bean>
+    </mvc:interceptors>
 
 
-<bean id="messageSource"
-class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-<property name="basename" value="classpath:messages" />
-<property name="defaultEncoding" value="UTF-8" />
-</bean>
-
-<!--<bean id="conversionService"
-          class="org.springframework.context.support.ConversionServiceFactoryBean">
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="classpath:messages" />
+        <property name="defaultEncoding" value="UTF-8" />
+    </bean>
+    
+   <bean id="converterService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
             <list>
-                <bean class="MovieConverter.MovieConverter"/>
+                <bean class="converter.ActorConverter"/>
             </list>
         </property>
-    </bean>-->
-
-
+    </bean>
 
 </beans>

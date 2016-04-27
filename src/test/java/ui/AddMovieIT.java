@@ -8,29 +8,30 @@ package ui;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import static org.junit.Assert.assertEquals;
+
 
 /**
  *
  * @author cathlene
  */
-public class AddActorTest {
+public class AddMovieIT {
     
-
     private WebDriver driver;
 
-/**	@Test
-	public void test_Should_add_product_if_all_fields_are_filled_in_correclty_with_valid_name_firstname_age(){
+	@Test
+	public void test_Should_add_product_if_all_fields_are_filled_in_correclty_with_valid_title_duration_nameActor_firstNameActor(){
                  System.setProperty("webdriver.chrome.driver", "C://cathlene//KHL//2de jaar//2de semester//internetprogrammerenOrigin//chromedriver.exe");
 
 		driver= new ChromeDriver();
-		AddActorPage addActorPage= new AddActorPage(driver);
-		addActorPage.setVoornaam("Jen");
-		addActorPage.setAchternaam("Lily");
-		addActorPage.setAge(42);
-		addActorPage.save();
-		assertEquals("actors", driver.getTitle());		
-	}**/
-
+		AddMoviePage addMoviePage= new AddMoviePage(driver);
+		addMoviePage.setVoornaamActor("Johnny");
+		addMoviePage.setAchternaamActor("Depp");
+		addMoviePage.setDuration(121);
+                addMoviePage.setTitle("Titanic");
+		addMoviePage.save();
+		assertEquals("movies", driver.getTitle());		
+	}
 }

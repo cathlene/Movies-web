@@ -22,58 +22,59 @@ import org.springframework.web.servlet.ModelAndView;
  * @author cathlene
  */
 @Controller
-@RequestMapping(value="/actor")
+@RequestMapping(value = "/actor")
 public class ActorController {
+
     @Autowired
     private Facade facade;
-      @RequestMapping(method=RequestMethod.GET)
-    public ModelAndView getActors(){
-    return new ModelAndView ("actors", "actors", facade.getActors());}
-    
-      @RequestMapping(value = "/new", method = RequestMethod.GET)
+
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView getActors() {
+        return new ModelAndView("actors", "actors", facade.getActors());
+    }
+
+       @RequestMapping(value = "/new", method = RequestMethod.GET)
     public ModelAndView getNewForm(){
         return new ModelAndView ("actorForm", "actor", new Actor());
    }
     
-      @RequestMapping(method = RequestMethod.POST)
-    public String save( @Valid @ModelAttribute ("actor") Actor actor, BindingResult result){
-        if(result.hasErrors()){
+    @RequestMapping(method = RequestMethod.POST)
+    public String save( @ModelAttribute("actor") Actor actor, BindingResult result) {
+        if (result.hasErrors()) {
             return "actorForm";
         }
         facade.addActor(actor);
         return "redirect:/actor.htm";
     }
-    
-    @RequestMapping(value="/{id}", method=RequestMethod.GET)
-    public ModelAndView getEditForm(@PathVariable long id){
-     return new ModelAndView("actorEditForm", "actor",facade.getActor(id));
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ModelAndView getEditForm(@PathVariable long id) {
+        return new ModelAndView("actorEditForm", "actor", facade.getActor(id));
     }
-    
-      @RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
-    public String deleteActor(@PathVariable long id){
-        
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String deleteActor(@PathVariable long id) {
+
         facade.removeActor(id);
         return "redirect:/actor.htm";
     }
-    
-     @RequestMapping(value="/update", method=RequestMethod.POST)
-    public String updateActor(@Valid @ModelAttribute("actor") Actor actor,BindingResult result){
-         if(result.hasErrors()){
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String updateActor( @ModelAttribute("actor") Actor actor, BindingResult result) {
+        if (result.hasErrors()) {
             return "actorEditForm";
         }
 
         facade.updateActor(actor);
         return "redirect:/actor.htm";
     }
-    
-       
-      @RequestMapping(value="/movies/{id}", method=RequestMethod.GET)
-    public ModelAndView  showMoviesForActor(@PathVariable long id){
-        Actor actor= facade.getActor(id);
+
+    @RequestMapping(value = "/movies/{id}", method = RequestMethod.GET)
+    public ModelAndView showMoviesForActor(@PathVariable long id) {
+        Actor actor = facade.getActor(id);
 
         facade.getMoviesWithSpecificActor(actor);
-        return new ModelAndView("movies","movies", facade.getMoviesWithSpecificActor(actor));
+        return new ModelAndView("movies", "movies", facade.getMoviesWithSpecificActor(actor));
     }
-    
-  
+
 }

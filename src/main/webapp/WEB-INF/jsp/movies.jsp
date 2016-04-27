@@ -29,7 +29,7 @@
                         <td>${movie.title}</a></td>
                         <td>${movie.duur}</td>
                         <td>${movie.hoofdrolSpeler.fullName} </td>
-                        <td><a href="<c:url value="movie/${movie.id}/${movie.hoofdrolSpeler.voornaam}/${movie.hoofdrolSpeler.naam}.htm"/>"> <spring:message code="lbl.edit" text="Edit" /></a> </td>
+                        <td><a href="<c:url value="movie/${movie.id}.htm"/>"> <spring:message code="lbl.edit" text="Edit" /></a> </td>
                         <td><a href="<c:url value="movie/delete/${movie.id}.htm" />"><spring:message code="lbl.delete" text="Delete" /></a></td>
                     </tr>
                 </c:forEach>
@@ -37,7 +37,7 @@
 
             </table>
             <form method="GET" action="<c:url value="/movie/new.htm"/>">
-                <input  class="btn btn-primary btn-md" type="submit" value="new"/> 
+                <input  id="opmaak" class="btn btn-primary btn-md" type="submit" value="new"/> 
             </form>
             <form  modelAttribute="duur" method="GET" action="<c:url value="/movie/duration.htm"/>">
 
@@ -50,7 +50,7 @@
 
                         <input  type="text" class="form-control" id="Duur" name="Duur" />
 
-                        <input  class="btn btn-primary btn-md" type="submit" value="Toon films "/> 
+                        <input id="opmaak" class="btn btn-primary btn-md" type="submit" value="Toon films "/> 
                         </form>
                     </div>
 

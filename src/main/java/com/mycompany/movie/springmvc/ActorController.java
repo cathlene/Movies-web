@@ -39,7 +39,7 @@ public class ActorController {
    }
     
     @RequestMapping(method = RequestMethod.POST)
-    public String save( @ModelAttribute("actor") Actor actor, BindingResult result) {
+    public String save(@Valid  @ModelAttribute("actor") Actor actor, BindingResult result) {
         if (result.hasErrors()) {
             return "actorForm";
         }
@@ -49,6 +49,7 @@ public class ActorController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ModelAndView getEditForm(@PathVariable long id) {
+        Actor actor=facade.getActor(id);
         return new ModelAndView("actorEditForm", "actor", facade.getActor(id));
     }
 
@@ -60,7 +61,7 @@ public class ActorController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String updateActor( @ModelAttribute("actor") Actor actor, BindingResult result) {
+    public String updateActor(@Valid @ModelAttribute("actor") Actor actor, BindingResult result) {
         if (result.hasErrors()) {
             return "actorEditForm";
         }

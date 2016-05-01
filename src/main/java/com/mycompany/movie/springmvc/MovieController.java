@@ -7,7 +7,7 @@ package com.mycompany.movie.springmvc;
 
 import domain.*;
 import java.util.List;
-import javax.enterprise.inject.Model;
+
 import javax.swing.JOptionPane;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import restDomain.Result;
 
 /**
  *
@@ -49,7 +50,7 @@ public class MovieController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String save(@ModelAttribute("movie") Movie movie, BindingResult result) {
+    public String save(@Valid @ModelAttribute("movie") Movie movie, BindingResult result) {
         if (result.hasErrors()) {
             return "movieForm";
         } else {
@@ -75,9 +76,16 @@ public class MovieController {
         facade.removeMovie(facade.getMovie(id));
         return "redirect:/movie.htm";
     }
+    
+     @RequestMapping(value = "/rating/{title}", method = RequestMethod.GET)
+    public ModelAndView rating(@PathVariable String title) {
+        Result result=facade.rating(title);
+        return new ModelAndView("score", "score", result.getImdbRating());
+
+    }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String updateMovie(@ModelAttribute("movie") Movie movie, BindingResult result) {
+    public String updateMovie(@Valid @ModelAttribute("movie") Movie movie, BindingResult result) {
         if (result.hasErrors()) {
             return "movieEditForm";
         }

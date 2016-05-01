@@ -22,6 +22,7 @@
                     <th><spring:message code="lbl.title" text="Title" /></th>
                     <th><spring:message code="lbl.durationMin" text="Duration (minutes)" /></th>
                     <th><spring:message code="lbl.hoofdrolspeler" text="Principal actor" /></th>
+                    <th>Rating</th>
                 </tr>
                 <c:forEach var="movie" items="${movies}">
                     <tr>
@@ -29,6 +30,7 @@
                         <td>${movie.title}</a></td>
                         <td>${movie.duur}</td>
                         <td>${movie.hoofdrolSpeler.fullName} </td>
+                        <td><a href="<c:url value="movie/rating/${movie.title}.htm"/>">rating</a></td>
                         <td><a href="<c:url value="movie/${movie.id}.htm"/>"> <spring:message code="lbl.edit" text="Edit" /></a> </td>
                         <td><a href="<c:url value="movie/delete/${movie.id}.htm" />"><spring:message code="lbl.delete" text="Delete" /></a></td>
                     </tr>

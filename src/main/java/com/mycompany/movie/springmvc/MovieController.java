@@ -8,7 +8,6 @@ package com.mycompany.movie.springmvc;
 import domain.*;
 import java.util.List;
 
-import javax.swing.JOptionPane;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

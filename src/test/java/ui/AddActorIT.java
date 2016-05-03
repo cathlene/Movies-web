@@ -11,6 +11,12 @@ import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 /**
  *
@@ -20,6 +26,7 @@ public class AddActorIT {
     
 
     private WebDriver driver;
+    
 
 	@Test
 	public void test_Should_add_product_if_all_fields_are_filled_in_correclty_with_valid_name_firstname_age(){

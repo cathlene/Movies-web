@@ -12,7 +12,6 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <glassfish.home>C:/Program Files/glassfish-4.1.1/glassfish</glassfish.home>
     </properties>
    
     
@@ -170,6 +169,13 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+        
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-test</artifactId>
+	<version>4.1.7.RELEASE</version>
+	<scope>test</scope>
+</dependency>
     </dependencies>
 
     <build>

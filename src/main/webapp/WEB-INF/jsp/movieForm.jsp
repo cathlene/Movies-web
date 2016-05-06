@@ -25,7 +25,7 @@
         <main>
 
             <h2><spring:message code="lbl.movieForm" text="New movie" /></h2>
-            <form:form class="form-horizontal" id="movieForm" role="form" method="POST" modelAttribute="movie" action="/movie-springMVC/movie.htm" >
+            <form:form class="form-horizontal" id="movieForm" role="form" method="POST" modelAttribute="movie" action="/movie-spring/movie.htm" >
 
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.title" text="Title" />:</label>

@@ -22,7 +22,7 @@
         <main>
             <h2><spring:message code="lbl.actorEditForm" text="Edit actor" /></h2>
 
-            <form:form class="form-horizontal" commandName="movie" id="movieForm" modelAttribute="movie" role="form" method="POST" action="/movie-springMVC/movie/update.htm" >
+            <form:form class="form-horizontal" commandName="movie" id="movieForm" modelAttribute="movie" role="form" method="POST" action="/movie-spring/movie/update.htm" >
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.title" text="Title" />:</label>
                     <div class="col-sm-10">

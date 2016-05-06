@@ -22,11 +22,11 @@
         <main>
             <h2><spring:message code="lbl.actorEditForm" text="Edit actor" /></h2>
 
-            <form:form class="form-horizontal" commandName="movie" id="movieForm" modelAttribute="movie" role="form" method="POST" action="/movie-spring/movie/update.htm" >
+            <form:form class="form-horizontal" commandName="movie" id="movieForm" modelAttribute="movie" role="form" method="POST" action="/movie-springMVC/movie/update.htm" >
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.title" text="Title" />:</label>
                     <div class="col-sm-10">
-                        <form:input path="title" type="text" class="form-control" id="title" name="title" value="${movie.title}" />
+                        <form:input path="title" type="text" class="form-control" id="title"  />
                         <form:errors path="title"/>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.duration" text="Duration" />:</label>
                     <div class="col-sm-10">
-                        <form:input path="duur" type="text" class="form-control" id="duur" name="duur" value="${movie.duur}" />
+                        <form:input path="duur" type="text" class="form-control" id="duur"  />
                         <form:errors path="duur"/>
                     </div>
                 </div>

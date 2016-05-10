@@ -12,13 +12,13 @@
 
     
     <bean id="facade" class="domain.Facade" destroy-method="closeConnection">
-       <constructor-arg>
+        <constructor-arg>
             <value>sql</value>
         </constructor-arg>
      
     </bean>  
 
-<bean id="converterService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+    <bean id="converterService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
             <list>
                 <bean class="converter.ActorConverter"/>

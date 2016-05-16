@@ -53,7 +53,11 @@ public class MovieController {
         if (result.hasErrors()) {
             return "movieForm";
         } else {
+            try{
             facade.addMovie(movie);
+        }catch(Exception exception){
+        
+        }
             return "redirect:/movie.htm";
         }
     }

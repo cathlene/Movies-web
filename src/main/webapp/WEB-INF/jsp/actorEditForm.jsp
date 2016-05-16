@@ -56,11 +56,17 @@
                 <div class="form-group">
                     <div class="col-sm-10">
                         <form:input  path="id" type="hidden" class="form-control" id="Id"  placeholder="Id" />
-                        <form:errors path="id"/>
 
                     </div>
                 </div>
                         
+                        
+                  <div class="form-group">
+                    <div class="col-sm-10">
+                        <form:input  path="movies" type="hidden" class="form-control" id="movies"  placeholder="movies" />
+
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">

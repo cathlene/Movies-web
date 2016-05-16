@@ -7,6 +7,8 @@ package com.mycompany.movie.springmvc;
 
 import domain.Actor;
 import domain.Facade;
+import domain.Movie;
+import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,7 +45,11 @@ public class ActorController {
         if (result.hasErrors()) {
             return "actorForm";
         }
+        try{
         facade.addActor(actor);
+        }catch(Exception exception){
+        
+        }
         return "redirect:/actor.htm";
     }
 
@@ -55,7 +61,7 @@ public class ActorController {
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteActor(@PathVariable long id) {
-
+        Actor actor= facade.getActor(id);
         facade.removeActor(id);
         return "redirect:/actor.htm";
     }
@@ -65,7 +71,13 @@ public class ActorController {
         if (result.hasErrors()) {
             return "actorEditForm";
         }
-
+        if(facade.getActor(actor.getId()).getMovies()!=null){
+        List<Movie> movies=facade.getMoviesWithSpecificActor(facade.getActor(actor.getId()));
+        for(Movie movie: movies){
+            actor.addMovie(movie);
+        }
+        }
+        
         facade.updateActor(actor);
         return "redirect:/actor.htm";
     }
@@ -74,7 +86,7 @@ public class ActorController {
     public ModelAndView showMoviesForActor(@PathVariable long id) {
         Actor actor = facade.getActor(id);
 
-        facade.getMoviesWithSpecificActor(actor);
+        List<Movie> movies=facade.getMoviesWithSpecificActor(actor);
         return new ModelAndView("movies", "movies", facade.getMoviesWithSpecificActor(actor));
     }
 

@@ -30,9 +30,9 @@
                         <td>${movie.title}</a></td>
                         <td>${movie.duur}</td>
                         <td>${movie.hoofdrolSpeler.fullName} </td>
-                        <td><a href="<c:url value="movie/rating/${movie.title}.htm"/>">rating</a></td>
-                        <td><a href="<c:url value="movie/${movie.id}.htm"/>"> <spring:message code="lbl.edit" text="Edit" /></a> </td>
-                        <td><a href="<c:url value="movie/delete/${movie.id}.htm" />"><spring:message code="lbl.delete" text="Delete" /></a></td>
+                        <td><a href="<c:url value="/movie/rating/${movie.title}.htm"/>">rating</a></td>
+                        <td><a href="<c:url value="/movie/${movie.id}.htm"/>"> <spring:message code="lbl.edit" text="Edit" /></a> </td>
+                        <td><a href="<c:url value="/movie/delete/${movie.id}.htm" />"><spring:message code="lbl.delete" text="Delete" /></a></td>
                     </tr>
                 </c:forEach>
                 <caption><spring:message code="lbl.movies" text="Movies Actors in System" /></caption>

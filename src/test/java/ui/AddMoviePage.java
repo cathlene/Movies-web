@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
@@ -28,27 +29,17 @@ public class AddMoviePage {
 		this.driver=driver;
 		driver.get(URL);
 	}
-	
-
-	public void setVoornaamActor(String voornaam) {
-
-		WebElement voornaamField= driver.findElement(By.id("actorVoornaam"));
-		voornaamField.clear();
-                voornaamField.sendKeys(voornaam);
-		
-	}
-
 	public void setDuration(int duur) {
 		WebElement duurField= driver.findElement(By.id("duur"));
 		duurField.clear();
 		String duurString= Integer.toString(duur);
 		duurField.sendKeys(duurString);
 	}
-	public void setAchternaamActor(String achternaam) {
-
-		WebElement achternaamField= driver.findElement(By.id("actorAchternaam"));
-		achternaamField.clear();
-                achternaamField.sendKeys(achternaam);
+	public void chooseActor() {
+                WebElement mySelectElm = driver.findElement(By.id("slcRole")); 
+                Select mySelect= new Select(mySelectElm);
+                WebElement option = mySelect.getFirstSelectedOption();
+		option.click();
 		
 	}
         public void setTitle(String title) {

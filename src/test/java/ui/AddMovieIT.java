@@ -27,8 +27,7 @@ public class AddMovieIT {
 
 		driver= new ChromeDriver();
 		AddMoviePage addMoviePage= new AddMoviePage(driver);
-		addMoviePage.setVoornaamActor("Johnny");
-		addMoviePage.setAchternaamActor("Depp");
+		addMoviePage.chooseActor();
 		addMoviePage.setDuration(121);
                 addMoviePage.setTitle("Titanic");
 		addMoviePage.save();

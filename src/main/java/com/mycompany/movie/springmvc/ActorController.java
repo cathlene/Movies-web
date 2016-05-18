@@ -71,7 +71,8 @@ public class ActorController {
         if (result.hasErrors()) {
             return "actorEditForm";
         }
-        if(facade.getActor(actor.getId()).getMovies()!=null){
+       if(facade.getActor(actor.getId()).getMovies()!=null){
+           Actor actor2= facade.getActor(actor.getId());
         List<Movie> movies=facade.getMoviesWithSpecificActor(facade.getActor(actor.getId()));
         for(Movie movie: movies){
             actor.addMovie(movie);

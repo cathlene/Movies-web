@@ -63,7 +63,7 @@
                         
                   <div class="form-group">
                     <div class="col-sm-10">
-                        <form:input  path="movies" type="hidden" class="form-control" id="movies"  placeholder="movies" />
+                        <form:input  path="movies" type="hidden" class="form-control" id="movies" value="${actor.movies}"/>
 
                     </div>
                 </div>

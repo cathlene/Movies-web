@@ -35,7 +35,7 @@
                         <td><a href="<c:url value="/movie/delete/${movie.id}.htm" />"><spring:message code="lbl.delete" text="Delete" /></a></td>
                     </tr>
                 </c:forEach>
-                <caption><spring:message code="lbl.movies" text="Movies Actors in System" /></caption>
+                <caption><spring:message code="lbl.movies" text="Movies" /></caption>
 
             </table>
             <form method="GET" action="<c:url value="/movie/new.htm"/>">
@@ -44,7 +44,7 @@
             <form  modelAttribute="duur" method="GET" action="<c:url value="/movie/duration.htm"/>">
 
                 <div id="duur" class="form-group">
-                 <caption><spring:message code="lbl.zoekMoviesMetDuur" text="Movies Actors in System" /></caption>
+                 <caption><spring:message code="lbl.zoekMoviesMetDuur" text="Movies" /></caption>
                     <legend></legend>
                     <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.duration" text="Duur" /></label>
 

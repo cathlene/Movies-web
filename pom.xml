@@ -179,7 +179,7 @@
     </dependencies>
 
     <build>
-        <finalName>Movies</finalName>
+        <finalName>movie-springMVC</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

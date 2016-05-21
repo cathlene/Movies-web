@@ -83,6 +83,12 @@ public class MovieController {
      @RequestMapping(value = "/rating/{title}", method = RequestMethod.GET)
     public ModelAndView rating(@PathVariable String title) {
         Result result=facade.rating(title);
+      /*  try{
+         result=facade.rating(title);
+        }catch(DomainException e){
+         return new ModelAndView("score", "score", "movie not in DB");
+
+        }*/
         return new ModelAndView("score", "score", result.getImdbRating());
 
     }

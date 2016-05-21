@@ -63,8 +63,14 @@ public class MovieController {
     }
 
     @RequestMapping(value = "/duration", method = RequestMethod.GET)
-    public ModelAndView getMovieWithDurationLessOrEqual(@RequestParam("Duur") Integer duur) {
-        return new ModelAndView("movies", "movies", facade.getMoviesWithSpecificDuration(duur));
+    public ModelAndView getMovieWithDurationLessOrEqual(@RequestParam("Duur") String duur) {
+        int duration;
+        try{duration= Integer.parseInt(duur);}
+        catch(Exception e){
+         return new ModelAndView("movies", "movies", facade.getMovies());
+
+        }
+        return new ModelAndView("movies", "movies", facade.getMoviesWithSpecificDuration(duration));
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

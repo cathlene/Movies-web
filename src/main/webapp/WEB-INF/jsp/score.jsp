@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-     <jsp:include page="head.jsp">
+    <jsp:include page="head.jsp">
 
         <jsp:param name="title" value="score" />
 

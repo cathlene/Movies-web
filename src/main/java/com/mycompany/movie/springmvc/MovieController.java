@@ -53,11 +53,11 @@ public class MovieController {
         if (result.hasErrors()) {
             return "movieForm";
         } else {
-            try{
-            facade.addMovie(movie);
-        }catch(Exception exception){
-        
-        }
+            try {
+                facade.addMovie(movie);
+            } catch (Exception exception) {
+
+            }
             return "redirect:/movie.htm";
         }
     }
@@ -65,9 +65,10 @@ public class MovieController {
     @RequestMapping(value = "/duration", method = RequestMethod.GET)
     public ModelAndView getMovieWithDurationLessOrEqual(@RequestParam("Duur") String duur) {
         int duration;
-        try{duration= Integer.parseInt(duur);}
-        catch(Exception e){
-         return new ModelAndView("movies", "movies", facade.getMovies());
+        try {
+            duration = Integer.parseInt(duur);
+        } catch (Exception e) {
+            return new ModelAndView("movies", "movies", facade.getMovies());
 
         }
         return new ModelAndView("movies", "movies", facade.getMoviesWithSpecificDuration(duration));
@@ -85,16 +86,11 @@ public class MovieController {
         facade.removeMovie(facade.getMovie(id));
         return "redirect:/movie.htm";
     }
-    
-     @RequestMapping(value = "/rating/{title}", method = RequestMethod.GET)
-    public ModelAndView rating(@PathVariable String title) {
-        Result result=facade.rating(title);
-      /*  try{
-         result=facade.rating(title);
-        }catch(DomainException e){
-         return new ModelAndView("score", "score", "movie not in DB");
 
-        }*/
+    @RequestMapping(value = "/rating/{title}", method = RequestMethod.GET)
+    public ModelAndView rating(@PathVariable String title) {
+        Result result = facade.rating(title);
+      
         return new ModelAndView("score", "score", result.getImdbRating());
 
     }

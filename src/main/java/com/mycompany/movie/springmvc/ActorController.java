@@ -35,33 +35,33 @@ public class ActorController {
         return new ModelAndView("actors", "actors", facade.getActors());
     }
 
-       @RequestMapping(value = "/new", method = RequestMethod.GET)
-    public ModelAndView getNewForm(){
-        return new ModelAndView ("actorForm", "actor", new Actor());
-   }
-    
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public ModelAndView getNewForm() {
+        return new ModelAndView("actorForm", "actor", new Actor());
+    }
+
     @RequestMapping(method = RequestMethod.POST)
-    public String save(@Valid  @ModelAttribute("actor") Actor actor, BindingResult result) {
+    public String save(@Valid @ModelAttribute("actor") Actor actor, BindingResult result) {
         if (result.hasErrors()) {
             return "actorForm";
         }
-        try{
-        facade.addActor(actor);
-        }catch(Exception exception){
-        
+        try {
+            facade.addActor(actor);
+        } catch (Exception exception) {
+
         }
         return "redirect:/actor.htm";
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ModelAndView getEditForm(@PathVariable long id) {
-        Actor actor=facade.getActor(id);
+        Actor actor = facade.getActor(id);
         return new ModelAndView("actorEditForm", "actor", facade.getActor(id));
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteActor(@PathVariable long id) {
-        Actor actor= facade.getActor(id);
+        Actor actor = facade.getActor(id);
         facade.removeActor(id);
         return "redirect:/actor.htm";
     }
@@ -71,14 +71,14 @@ public class ActorController {
         if (result.hasErrors()) {
             return "actorEditForm";
         }
-       if(facade.getActor(actor.getId()).getMovies()!=null){
-           Actor actor2= facade.getActor(actor.getId());
-        List<Movie> movies=facade.getMoviesWithSpecificActor(facade.getActor(actor.getId()));
-        for(Movie movie: movies){
-            actor.addMovie(movie);
+        if (facade.getActor(actor.getId()).getMovies() != null) {
+            Actor actor2 = facade.getActor(actor.getId());
+            List<Movie> movies = facade.getMoviesWithSpecificActor(facade.getActor(actor.getId()));
+            for (Movie movie : movies) {
+                actor.addMovie(movie);
+            }
         }
-        }
-        
+
         facade.updateActor(actor);
         return "redirect:/actor.htm";
     }
@@ -87,7 +87,7 @@ public class ActorController {
     public ModelAndView showMoviesForActor(@PathVariable long id) {
         Actor actor = facade.getActor(id);
 
-        List<Movie> movies=facade.getMoviesWithSpecificActor(actor);
+        List<Movie> movies = facade.getMoviesWithSpecificActor(actor);
         return new ModelAndView("movies", "movies", facade.getMoviesWithSpecificActor(actor));
     }
 

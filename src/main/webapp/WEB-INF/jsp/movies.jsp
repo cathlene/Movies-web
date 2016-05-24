@@ -44,7 +44,7 @@
             <form  modelAttribute="duur" method="GET" action="<c:url value="/movie/duration.htm"/>">
 
                 <div id="duur" class="form-group">
-                 <caption><spring:message code="lbl.zoekMoviesMetDuur" text="Movies" /></caption>
+                    <caption><spring:message code="lbl.zoekMoviesMetDuur" text="Movies" /></caption>
                     <legend></legend>
                     <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.duration" text="Duur" /></label>
 

@@ -47,7 +47,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label"><spring:message code="lbl.hoofdrolspeler" text="HoofdrolSpeler" />:</label>
                     <div>
-                      <form:select id="slcRole" path="hoofdrolSpeler"> 
+                        <form:select id="slcRole" path="hoofdrolSpeler"> 
                             <form:options items="${actorList}" itemLabel="fullName" itemValue="id" id="selections"/>
                         </form:select>
                     </div>

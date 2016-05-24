@@ -10,17 +10,17 @@
 
 <!DOCTYPE html>
 <html>
-     <jsp:include page="head.jsp">
-        
-<jsp:param name="title" value="actors" />
+    <jsp:include page="head.jsp">
 
-</jsp:include>
+        <jsp:param name="title" value="actors" />
+
+    </jsp:include>
     <body>
         <jsp:include page="header.jsp"/>
         <main><table class="table">
                 <tr>
                     <th><spring:message code="lbl.firstname" text="Firstname" /></th>
-                     <th><spring:message code="lbl.name" text="Name" /></th>
+                    <th><spring:message code="lbl.name" text="Name" /></th>
                     <th><spring:message code="lbl.age" text="Age" /></th>
                     <th><spring:message code="lbl.id" text="Id" /></th>
                 </tr>

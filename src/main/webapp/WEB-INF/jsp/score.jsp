@@ -18,7 +18,7 @@
         <main>
             <h2><spring:message code="lbl.actorEditForm" text="Edit actor" /></h2>
 
-            <p>Score: ${score}</p>
+            <p>IMDB score: ${score}</p>
         </main>
         <jsp:include page="footer.jsp"/>
     </body>
